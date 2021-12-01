@@ -1,0 +1,18 @@
+<?php
+
+include("conexion.php");
+$con=conectar();
+
+$idpaciente=$_POST['idpaciente'];
+$nombre=$_POST['nombre'];
+$email=$_POST['email'];
+$numero_seguro_social=$_POST['numero_seguro_social'];
+$tipo_de_cita=$_POST['tipo_de_cita'];
+
+$sql="UPDATE paciente SET  idpaciente='$idpaciente',nombre='$nombre',email='$email',numero_seguro_social='$numero_seguro_social',tipo_de_cita='$tipo_de_cita' WHERE idpaciente='$idpaciente'";
+$query=mysqli_query($con,$sql);
+
+    if($query){
+        Header("Location: paciente.php");
+    }
+?>
